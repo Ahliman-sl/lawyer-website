@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Merienda:wght@300..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-image {
+  position: relative;
+  background-image: url("./Images/lawyer2.jpg");
+  height: full;
+  width: full;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlayForHeader {
+  z-index: 1;
+  position: absolute; /* Mutlak pozisyon */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Opaklık ekleyen renk (siyah, %50 opaklık) */
+  pointer-events: none;
+}
+
+@keyframes hover-underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.hover-underline-animation::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff; /* Çizgi rengi */
+  transition: width 0.3s; /* Geçiş süresi */
+}
+
+.hover-underline-animation:hover::after {
+  animation: hover-underline 0.3s ease-in-out forwards; /* Animasyon adı, süresi, geçiş tipi */
+}
